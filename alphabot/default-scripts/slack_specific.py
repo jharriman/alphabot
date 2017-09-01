@@ -10,9 +10,6 @@ import alphabot.bot
 bot = alphabot.bot.get_instance()
 log = logging.getLogger(__name__)
 
-WEB_PORT = int(os.getenv('WEB_PORT', 8000))
-WEB_PORT_SSL = int(os.getenv('WEB_PORT_SSL', 8443))
-
 
 @bot.on(ok=False, error={"code": -1,
                          "msg": "slow down, too many messages..."})
