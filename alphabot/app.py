@@ -45,8 +45,8 @@ parser.add_argument('-e', '--engine', dest='engine', action='store',
 parser.add_argument('-m', '--memory', dest='memory', action='store',
                     default='dict', help='What persistent storage to use.')
 
-parser.add_argument('--web_app', dest='start_web_app', action='store_true',
-                    default=False, help='Run a web server?')
+parser.add_argument('--no_web_app', dest='start_web_app', action='store_false',
+                    default=True, help='Run a web server?')
 
 args = parser.parse_args()
 
