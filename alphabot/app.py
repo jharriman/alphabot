@@ -45,6 +45,9 @@ parser.add_argument('-e', '--engine', dest='engine', action='store',
 parser.add_argument('-m', '--memory', dest='memory', action='store',
                     default='dict', help='What persistent storage to use.')
 
+parser.add_argument('--web_app', dest='start_web_app', action='store_true',
+                    default=False, help='Run a web server?')
+
 args = parser.parse_args()
 
 __author__ = ('Mikhail Simin <mikhail@nextdoor.com>',)
@@ -63,7 +66,7 @@ def start_ioloop():
 @gen.coroutine
 def start_alphabot():
 
-    bot = alphabot.bot.get_instance(engine=args.engine)
+    bot = alphabot.bot.get_instance(engine=args.engine, start_web_app=args.start_web_app)
     memory = args.memory
 
     full_path_scripts = [os.path.abspath(s) for s in args.scripts]
